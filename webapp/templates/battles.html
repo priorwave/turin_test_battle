@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle History & Leaderboard - LLM Turing Test</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Battle History & Leaderboard</h1>
+            <p class="subtitle">Past battles and model performance statistics</p>
+            <nav class="header-nav">
+                <a href="/" class="nav-link">🎮 New Battle</a>
+                <a href="/battles" class="nav-link active">📊 Battle History</a>
+            </nav>
+        </header>
+
+        <div class="battles-content">
+            <!-- Leaderboard Section -->
+            <section class="leaderboard-section">
+                <h2>🏆 Leaderboard</h2>
+                
+                <div class="leaderboard-grid">
+                    <div class="leaderboard-card">
+                        <h3>🎭 Best Participant Models</h3>
+                        <p class="leaderboard-subtitle">Models that best fool interrogators</p>
+                        <div id="participant-leaderboard" class="leaderboard-list">
+                            <div class="loading">Loading leaderboard...</div>
+                        </div>
+                    </div>
+                    
+                    <div class="leaderboard-card">
+                        <h3>🕵️‍♂️ Best Interrogator Models</h3>
+                        <p class="leaderboard-subtitle">Models that best detect AI participants</p>
+                        <div id="interrogator-leaderboard" class="leaderboard-list">
+                            <div class="loading">Loading leaderboard...</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Battles History Section -->
+            <section class="battles-section">
+                <h2>⚔️ Recent Battles</h2>
+                <div id="battles-list" class="battles-list">
+                    <div class="loading">Loading battles...</div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Battle Detail Modal -->
+    <div id="battle-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Battle Details</h3>
+                <button class="modal-close" id="modal-close">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal-battle-info" class="battle-info"></div>
+                <div id="modal-conversation" class="conversation-display"></div>
+                <div id="modal-judgment" class="judgment-display"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/battles.js"></script>
+
+    {% if config['DEBUG'] %}
+    <script src="https://cdn.jsdelivr.net/npm/@stagewise/toolbar@latest/dist/index.umd.js"></script>
+    <script>
+      window.stagewise.initToolbar();
+    </script>
+    {% endif %}
+</body>
+</html>

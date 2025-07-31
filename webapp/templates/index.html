@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Turing Test Game</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="api-key-banner" class="banner hidden">
+        <strong>Warning:</strong> The <code>OPENROUTER_API_KEY</code> is not set. Please add it to a <code>.env</code> file in the project root to play the game.
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1>LLM Turing Test Game</h1>
+            <p class="subtitle">Can you distinguish between human and AI responses?</p>
+            <nav class="header-nav">
+                <a href="/" class="nav-link active">🎮 New Battle</a>
+                <a href="/battles" class="nav-link">📊 Battle History</a>
+            </nav>
+        </header>
+
+        <div class="game-setup">
+            <div class="settings-grid">
+                <div class="setting-group">
+                    <label for="participant-model">Participant Model</label>
+                    <div class="searchable-select-wrapper">
+                        <input type="text" id="participant-model" class="searchable-select" value="Loading models..." readonly>
+                        <div class="searchable-dropdown" id="participant-model-dropdown"></div>
+                        <div class="select-arrow"></div>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label for="interrogator-model">Interrogator Model</label>
+                    <div class="searchable-select-wrapper">
+                        <input type="text" id="interrogator-model" class="searchable-select" value="Loading models..." readonly>
+                        <div class="searchable-dropdown" id="interrogator-model-dropdown"></div>
+                        <div class="select-arrow"></div>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label for="num-questions">Number of Questions</label>
+                    <input type="number" id="num-questions" value="10" min="1" max="20" class="number-input">
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button id="start-game" class="btn btn-primary">Start Game</button>
+                <button id="reset-game" class="btn btn-secondary hidden">Reset Game</button>
+            </div>
+        </div>
+
+        <div id="game-area" class="hidden">
+            <div class="conversation-container">
+                <div id="conversation" class="conversation"></div>
+            </div>
+            <div id="judgment-area" class="judgment-area"></div>
+        </div>
+    </div>
+
+    <canvas id="celebration-canvas"></canvas>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="/static/script.js"></script>
+
+    {% if config['DEBUG'] %}
+    <script src="https://cdn.jsdelivr.net/npm/@stagewise/toolbar@latest/dist/index.umd.js"></script>
+    <script>
+      window.stagewise.initToolbar();
+    </script>
+    {% endif %}
+</body>
+</html>
