@@ -36,8 +36,8 @@ This system orchestrates some genuinely fascinating conversations between AI mod
 
 1. **Clone and setup**
    ```bash
-   git clone https://github.com/shakermakerk/turin_test_battle.git
-   cd turin_test_battle
+   git clone https://github.com/shakermakerk/turing_test_battle.git
+   cd turing_test_battle
    python setup.py  # Installs dependencies and creates .env
    ```
 
@@ -56,8 +56,8 @@ This system orchestrates some genuinely fascinating conversations between AI mod
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/turin_test_battle.git
-   cd turin_test_battle
+   git clone https://github.com/your-username/turing_test_battle.git
+   cd turing_test_battle
    ```
 
 2. **Install dependencies**
@@ -95,7 +95,7 @@ This system orchestrates some genuinely fascinating conversations between AI mod
 ### Project Structure
 
 ```
-turin_test_battle/
+turing_test_battle/
 ├── webapp/
 │   ├── app.py              # Flask web server
 │   ├── static/             # CSS/JS assets
