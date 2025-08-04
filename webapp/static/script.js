@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const apiKeyBanner = document.getElementById('api-key-banner');
     let resetGameBtn;
     let allModels = [];
+    let eventSource = null;
 
     // Searchable Select functionality
     class SearchableSelect {
@@ -278,6 +279,10 @@ document.addEventListener('DOMContentLoaded', () => {
         resetGameBtn.className = 'btn btn-secondary';
         resetGameBtn.textContent = 'Reset Game';
         resetGameBtn.addEventListener('click', () => {
+            if (eventSource) {
+                eventSource.close();
+                eventSource = null;
+            }
             gameArea.classList.add('hidden');
             conversationDiv.innerHTML = '';
             judgmentArea.innerHTML = '';
@@ -315,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
         conversationDiv.innerHTML = '<div class="loading-message">🤖 The game is starting...<br>The interrogator is thinking of the first question.</div>';
         judgmentArea.innerHTML = '';
 
-        const eventSource = new EventSource(`/api/play?participant_model=${participantModel}&interrogator_model=${interrogatorModel}&num_questions=${numQuestions}`);
+        eventSource = new EventSource(`/api/play?participant_model=${participantModel}&interrogator_model=${interrogatorModel}&num_questions=${numQuestions}`);
 
         eventSource.onmessage = function(event) {
             const data = JSON.parse(event.data);
@@ -323,6 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.error) {
                 conversationDiv.innerHTML = `<div class="error-message">❌ ${data.error}<br><small>Try selecting different models or check your API key configuration.</small></div>`;
                 eventSource.close();
+                eventSource = null;
                 startGameBtn.disabled = false;
                 startGameBtn.textContent = 'Start Game';
                 return;
@@ -331,6 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.role === 'judgment') {
                 displayJudgment(data.content);
                 eventSource.close();
+                eventSource = null;
                 startGameBtn.disabled = false;
                 startGameBtn.textContent = 'Start Game';
             } else {
@@ -341,6 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
         eventSource.onerror = function() {
             conversationDiv.innerHTML += `<div class="error-message">🔌 Connection error occurred.<br><small>Please check your internet connection and try again.</small></div>`;
             eventSource.close();
+            eventSource = null;
             startGameBtn.disabled = false;
             startGameBtn.textContent = 'Start Game';
         };
