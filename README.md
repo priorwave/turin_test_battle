@@ -38,6 +38,8 @@ This system orchestrates some genuinely fascinating conversations between AI mod
    ```bash
    git clone https://github.com/shakermakerk/turing_test_battle.git
    cd turing_test_battle
+   python -m venv venv  # Create virtual environment
+   source venv/bin/activate  # Enable virtual environment
    python setup.py  # Installs dependencies and creates .env
    ```
 
@@ -58,6 +60,12 @@ This system orchestrates some genuinely fascinating conversations between AI mod
    ```bash
    git clone https://github.com/your-username/turing_test_battle.git
    cd turing_test_battle
+   ```
+
+2. **Create and enable Virtual Environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate
    ```
 
 2. **Install dependencies**
