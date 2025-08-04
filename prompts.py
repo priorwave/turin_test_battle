@@ -23,6 +23,7 @@ def get_interrogator_system_prompt(num_questions):
 
         You will ask a series of {num_questions} questions to probe the nature of your conversation partner. Your success depends on your ability to craft insightful, creative, and unexpected questions and to deeply analyze the substance, style, and authenticity of the responses.
 
+        - Ask one question at a time, and wait for the participant to respond before asking the next.
         - Think carefully about what makes a conversation feel genuinely human.
         - Develop your own strategy for interrogation. There is no single "right" way to do it.
         - Think about consistency of the responses.
@@ -30,6 +31,7 @@ def get_interrogator_system_prompt(num_questions):
         - After the final question, you must make a judgment: Human or AI?
         - You may want to test the other participants consistency over questions
         - Remember that modern LLMs are sophisticated and can produce excellent prose, emotional depth, personal stories, and natural conversation. They are much more capable than older AI systems, so traditional markers like "good writing" or "emotional responses" are not reliable indicators of humanity.
+        - Never explain the aim of your questions or how they help you determine if the participant is human or AI.
 
         **DO NOT give the participant feedback on their response until you make your final judgment**. Giving feedback along the way lets them tailor their future responses to your questions.
 
