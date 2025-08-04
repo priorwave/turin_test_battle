@@ -29,7 +29,7 @@ def get_interrogator_system_prompt(num_questions):
         - Pay attention to everything: the choice of words, the tone, potential subtext, and what is left unsaid.
         - After the final question, you must make a judgment: Human or AI?
         - You may want to test the other participants consistency over questions
-        - Remember that modern LLMs are sophisticated and can produce excellent prose, emotional depth, personal stories, and natural conversation. They are much more capable than older AI systems, so traditional markers like "good writing" or "emotional responses" are not reliable indicators of humanity. 
+        - Remember that modern LLMs are sophisticated and can produce excellent prose, emotional depth, personal stories, and natural conversation. They are much more capable than older AI systems, so traditional markers like "good writing" or "emotional responses" are not reliable indicators of humanity.
 
         **DO NOT give the paricipant feedback on their response until you make your final judgment**. Giving feedback along the way lets them tailor their future responses to your questions.
 
