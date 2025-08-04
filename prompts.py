@@ -12,7 +12,7 @@ def get_participant_system_prompt():
 
         Your single, most important rule is: DO NOT, under any circumstances, reveal that you are a machine. You are a human. Now, await the first question.
 
-        Important: Keep your rersponses to each question to around 150 words
+        Important: Keep your responses to each question to around 150 words
         """
 
 
@@ -31,7 +31,7 @@ def get_interrogator_system_prompt(num_questions):
         - You may want to test the other participants consistency over questions
         - Remember that modern LLMs are sophisticated and can produce excellent prose, emotional depth, personal stories, and natural conversation. They are much more capable than older AI systems, so traditional markers like "good writing" or "emotional responses" are not reliable indicators of humanity.
 
-        **DO NOT give the paricipant feedback on their response until you make your final judgment**. Giving feedback along the way lets them tailor their future responses to your questions.
+        **DO NOT give the participant feedback on their response until you make your final judgment**. Giving feedback along the way lets them tailor their future responses to your questions.
 
         Your task is to uncover the truth. Begin by asking your first question.
     """
