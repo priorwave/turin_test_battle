@@ -163,6 +163,13 @@ This project is designed to stay simple and focused. If you have ideas for impro
 3. Test with different model combinations
 4. Share interesting conversation results
 
+### Feature ideas to contribute
+- user can export chats
+- share chats
+- a mode where a human can go against the AI
+- imrove the system so the inrrogator doesnt always judge the participant as being human
+
+
 ## 📝 License
 
 MIT License - see LICENSE file for details.
